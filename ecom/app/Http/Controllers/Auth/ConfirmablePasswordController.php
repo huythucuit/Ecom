@@ -38,4 +38,6 @@ class ConfirmablePasswordController extends Controller
 
         return redirect()->intended(RouteServiceProvider::HOME);
     }
+
+    
 }
