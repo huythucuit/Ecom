@@ -7,7 +7,7 @@
     <title>@yield('page_title')</title>
 
     <!-- page css -->
-
+    
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('dashboard/assets/images/logo/colored-logo.png') }}">
 
@@ -15,15 +15,15 @@
     <link href="~/admin_assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
     <!-- Core css -->
     <link href="{{ asset('dashboard/assets/css/app.min.css') }}" rel="stylesheet">
-    
+
     <link href="https://fonts.cdnfonts.com/css/be-vietnam-pro" rel="stylesheet">
 </head>
 
 <style>
-    body{
+    body {
         font-family: 'Be Vietnam Pro';
     }
-</style> 
+</style>
 
 <body>
     <div class="app">
@@ -33,13 +33,15 @@
                 <div class="logo logo-dark">
                     <a href="index.html" style="margin-top: 18px; margin-right: 18px;">
                         <img src="{{ asset('dashboard/assets/images/logo/color-logo.svg') }}" alt="Logo">
-                        <img class="logo-fold" src="{{ asset('dashboard/assets/images/logo/logo-fold.svg') }}" alt="Logo" style="width: 41px; margin-left: 20px; margin-top: -5px;">
+                        <img class="logo-fold" src="{{ asset('dashboard/assets/images/logo/logo-fold.svg') }}"
+                            alt="Logo" style="width: 41px; margin-left: 20px; margin-top: -5px;">
                     </a>
                 </div>
                 <div class="logo logo-white">
                     <a href="index.html">
                         <img src="{{ asset('dashboard/assets/images/logo/logo-white.png') }}" alt="Logo">
-                        <img class="logo-fold" src="{{ asset('dashboard/assets/images/logo/logo-fold-white.png') }}" alt="Logo">
+                        <img class="logo-fold" src="{{ asset('dashboard/assets/images/logo/logo-fold-white.png') }}"
+                            alt="Logo">
                     </a>
                 </div>
                 <div class="nav-wrap">
@@ -66,7 +68,8 @@
                                 <i class="anticon anticon-bell notification-badge"></i>
                             </a>
                             <div class="dropdown-menu pop-notification">
-                                <div class="p-v-15 p-h-25 border-bottom d-flex justify-content-between align-items-center">
+                                <div
+                                    class="p-v-15 p-h-25 border-bottom d-flex justify-content-between align-items-center">
                                     <p class="text-dark font-weight-semibold m-b-0">
                                         <i class="anticon anticon-bell"></i>
                                         <span class="m-l-10">Notification</span>
@@ -128,14 +131,15 @@
                         <li class="dropdown dropdown-animated scale-left">
                             <div class="pointer" data-toggle="dropdown">
                                 <div class="avatar avatar-image  m-h-10 m-r-15">
-                                    <img src="{{ asset('dashboard/assets/') }}images/avatars/thumb-3.jpg"  alt="">
+                                    <img src="{{ asset('dashboard/assets/') }}images/avatars/thumb-3.jpg" alt="">
                                 </div>
                             </div>
                             <div class="p-b-15 p-t-20 dropdown-menu pop-profile">
                                 <div class="p-h-20 p-b-15 m-b-10 border-bottom">
                                     <div class="d-flex m-r-50">
                                         <div class="avatar avatar-lg avatar-image">
-                                            <img src="{{ asset('dashboard/assets/') }}images/avatars/thumb-3.jpg" alt="">
+                                            <img src="{{ asset('dashboard/assets/') }}images/avatars/thumb-3.jpg"
+                                                alt="">
                                         </div>
                                         <div class="m-l-10">
                                             <p class="m-b-0 text-dark font-weight-semibold">Marshall Nichols</p>
@@ -170,7 +174,9 @@
                                         <i class="anticon font-size-10 anticon-right"></i>
                                     </div>
                                 </a>
-                                <a href="javascript:void(0);" class="dropdown-item d-block p-h-15 p-v-10">
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                                    class="dropdown-item d-block p-h-15 p-v-10">
                                     <div class="d-flex align-items-center justify-content-between">
                                         <div>
                                             <i class="anticon opacity-04 font-size-16 anticon-logout"></i>
@@ -179,6 +185,10 @@
                                         <i class="anticon font-size-10 anticon-right"></i>
                                     </div>
                                 </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                    style="display: none;">
+                                    @csrf
+                                </form>
                             </div>
                         </li>
                         <li>
@@ -188,229 +198,229 @@
                         </li>
                     </ul>
                 </div>
-            </div>    
+            </div>
             <!-- Header END -->
 
             <!-- Side Nav START -->
             <div class="side-nav">
-    <div class="side-nav-inner">
-        <ul class="side-nav-menu scrollable">
-            <li class="nav-item dropdown open">
-                <a class="dropdown-toggle" href="{{ route('admindashboard') }}">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-dashboard"></i>
-                    </span>
-                    <span class="title">Dashboard</span>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-appstore"></i>
-                    </span>
-                    <span class="title">Quản lý sản phẩm</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="{{ route('allproducts') }}">Sản phẩm</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('addproduct') }}">Thêm sản phẩm</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('allcategory') }}">Danh mục</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('addcategory') }}">Thêm danh mục</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('allsubcategory') }}">SUB CATEGORY</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('addsubcategory') }}">ADD SUB CATEGORY</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-build"></i>
-                    </span>
-                    <span class="title">Quản lý đơn hàng</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="{{ route('pendingorder') }}">pending Order</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-hdd"></i>
-                    </span>
-                    <span class="title">Quản lý tài khoản</span>
-<span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="accordion.html">Tài khoản admin</a>
-                    </li>
-                    <li>
-                        <a href="carousel.html">Tài khoản user</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-form"></i>
-                    </span>
-                    <span class="title">Quản lý bài đăng</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="form-elements.html">Doanh số ngày</a>
-                    </li>
-                    <li>
-                        <a href="form-layouts.html">Doanh số tuần</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Doanh số tháng</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Doanh số năm</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-pie-chart"></i>
-                    </span>
-                    <span class="title">Thống kê doanh số</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="form-elements.html">Doanh số ngày</a>
-                    </li>
-                    <li>
-                        <a href="form-layouts.html">Doanh số tuần</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Doanh số tháng</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Doanh số năm</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-file"></i>
-                    </span>
-                    <span class="title">Quản lý page</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-<ul class="dropdown-menu">
-                    <li>
-                        <a href="profile.html">Profile</a>
-                    </li>
-                    <li>
-                        <a href="invoice.html">Invoice</a>
-                    </li>
-                    <li>
-                        <a href="members.html">Members</a>
-                    </li>
-                    <li>
-                        <a href="pricing.html">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="setting.html">Setting</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="javascript:void(0);">
-                            <span>Blog</span>
-                            <span class="arrow">
-                                <i class="arrow-icon"></i>
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="blog-grid.html">Blog Grid</a>
-                            </li>
-                            <li>
-                                <a href="blog-list.html">Blog List</a>
-                            </li>
-                            <li>
-                                <a href="blog-post.html">Blog Post</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-lock"></i>
-                    </span>
-                    <span class="title">Authentication</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="login-1.html">Login 1</a>
-                    </li>
-                    <li>
-                        <a href="login-2.html">Login 2</a>
-                    </li>
-                    <li>
-                        <a href="login-3.html">Login 3</a>
-                    </li>
-                    <li>
-                        <a href="sign-up-1.html">Sign Up 1</a>
-                    </li>
-                    <li>
-                        <a href="sign-up-2.html">Sign Up 2</a>
-                    </li>
-                    <li>
-                        <a href="sign-up-3.html">Sign Up 3</a>
-                    </li>
-                    <li>
-                        <a href="error-1.html">Error 1</a>
-                    </li>
-                    <li>
-                        <a href="error-2.html">Error 2</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
+                <div class="side-nav-inner">
+                    <ul class="side-nav-menu scrollable">
+                        <li class="nav-item dropdown open">
+                            <a class="dropdown-toggle" href="{{ route('admindashboard') }}">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-dashboard"></i>
+                                </span>
+                                <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-appstore"></i>
+                                </span>
+                                <span class="title">Quản lý sản phẩm</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('allproducts') }}">Sản phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('addproduct') }}">Thêm sản phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('allcategory') }}">Danh mục</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('addcategory') }}">Thêm danh mục</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('allsubcategory') }}">SUB CATEGORY</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('addsubcategory') }}">ADD SUB CATEGORY</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-build"></i>
+                                </span>
+                                <span class="title">Quản lý đơn hàng</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('pendingorder') }}">pending Order</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-hdd"></i>
+                                </span>
+                                <span class="title">Quản lý tài khoản</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="accordion.html">Tài khoản admin</a>
+                                </li>
+                                <li>
+                                    <a href="carousel.html">Tài khoản user</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-form"></i>
+                                </span>
+                                <span class="title">Quản lý bài đăng</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="form-elements.html">Doanh số ngày</a>
+                                </li>
+                                <li>
+                                    <a href="form-layouts.html">Doanh số tuần</a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">Doanh số tháng</a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">Doanh số năm</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-pie-chart"></i>
+                                </span>
+                                <span class="title">Thống kê doanh số</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="form-elements.html">Doanh số ngày</a>
+                                </li>
+                                <li>
+                                    <a href="form-layouts.html">Doanh số tuần</a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">Doanh số tháng</a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">Doanh số năm</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-file"></i>
+                                </span>
+                                <span class="title">Quản lý page</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="profile.html">Profile</a>
+                                </li>
+                                <li>
+                                    <a href="invoice.html">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="members.html">Members</a>
+                                </li>
+                                <li>
+                                    <a href="pricing.html">Pricing</a>
+                                </li>
+                                <li>
+                                    <a href="setting.html">Setting</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="javascript:void(0);">
+                                        <span>Blog</span>
+                                        <span class="arrow">
+                                            <i class="arrow-icon"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="blog-grid.html">Blog Grid</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog-list.html">Blog List</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog-post.html">Blog Post</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-lock"></i>
+                                </span>
+                                <span class="title">Authentication</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="login-1.html">Login 1</a>
+                                </li>
+                                <li>
+                                    <a href="login-2.html">Login 2</a>
+                                </li>
+                                <li>
+                                    <a href="login-3.html">Login 3</a>
+                                </li>
+                                <li>
+                                    <a href="sign-up-1.html">Sign Up 1</a>
+                                </li>
+                                <li>
+                                    <a href="sign-up-2.html">Sign Up 2</a>
+                                </li>
+                                <li>
+                                    <a href="sign-up-3.html">Sign Up 3</a>
+                                </li>
+                                <li>
+                                    <a href="error-1.html">Error 1</a>
+                                </li>
+                                <li>
+                                    <a href="error-2.html">Error 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <!-- Side Nav END -->
 
             <!-- Page Container START -->
             <div class="page-container">
-                
+
 
                 <!-- Content Wrapper START -->
                 <div class="main-content">
@@ -451,7 +461,8 @@
                                         <i class="anticon anticon-file-excel"></i>
                                     </div>
                                     <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Quater Report.exl</a>
+                                        <a href="javascript:void(0);"
+                                            class="text-dark m-b-0 font-weight-semibold">Quater Report.exl</a>
                                         <p class="m-b-0 text-muted font-size-13">by Finance</p>
                                     </div>
                                 </div>
@@ -460,7 +471,8 @@
                                         <i class="anticon anticon-file-word"></i>
                                     </div>
                                     <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Documentaion.docx</a>
+                                        <a href="javascript:void(0);"
+                                            class="text-dark m-b-0 font-weight-semibold">Documentaion.docx</a>
                                         <p class="m-b-0 text-muted font-size-13">by Developers</p>
                                     </div>
                                 </div>
@@ -469,7 +481,8 @@
                                         <i class="anticon anticon-file-text"></i>
                                     </div>
                                     <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Recipe.txt</a>
+                                        <a href="javascript:void(0);"
+                                            class="text-dark m-b-0 font-weight-semibold">Recipe.txt</a>
                                         <p class="m-b-0 text-muted font-size-13">by The Chef</p>
                                     </div>
                                 </div>
@@ -478,7 +491,8 @@
                                         <i class="anticon anticon-file-pdf"></i>
                                     </div>
                                     <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Project Requirement.pdf</a>
+                                        <a href="javascript:void(0);"
+                                            class="text-dark m-b-0 font-weight-semibold">Project Requirement.pdf</a>
                                         <p class="m-b-0 text-muted font-size-13">by Project Manager</p>
                                     </div>
                                 </div>
@@ -490,7 +504,8 @@
                                         <img src="{{ asset('dashboard/assets/images/avatars/thumb-1.jpg') }}" alt="">
                                     </div>
                                     <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Erin Gonzales</a>
+                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Erin
+                                            Gonzales</a>
                                         <p class="m-b-0 text-muted font-size-13">UI/UX Designer</p>
                                     </div>
                                 </div>
@@ -499,7 +514,8 @@
                                         <img src="{{ asset('dashboard/assets/images/avatars/thumb-2.jpg') }}" alt="">
                                     </div>
                                     <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Darryl Day</a>
+                                        <a href="javascript:void(0);"
+                                            class="text-dark m-b-0 font-weight-semibold">Darryl Day</a>
                                         <p class="m-b-0 text-muted font-size-13">Software Engineer</p>
                                     </div>
                                 </div>
@@ -508,26 +524,28 @@
                                         <img src="{{ asset('dashboard/assets/images/avatars/thumb-3.jpg') }}" alt="">
                                     </div>
                                     <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">Marshall Nichols</a>
+                                        <a href="javascript:void(0);"
+                                            class="text-dark m-b-0 font-weight-semibold">Marshall Nichols</a>
                                         <p class="m-b-0 text-muted font-size-13">Data Analyst</p>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                             <div class="m-t-30">
-                                <h5 class="m-b-20">News</h5> 
+                                <h5 class="m-b-20">News</h5>
                                 <div class="d-flex m-b-30">
                                     <div class="avatar avatar-image">
                                         <img src="{{ asset('dashboard/assets/images/others/img-1.jpg') }}" alt="">
                                     </div>
                                     <div class="m-l-15">
-                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">5 Best Handwriting Fonts</a>
+                                        <a href="javascript:void(0);" class="text-dark m-b-0 font-weight-semibold">5
+                                            Best Handwriting Fonts</a>
                                         <p class="m-b-0 text-muted font-size-13">
                                             <i class="anticon anticon-clock-circle"></i>
                                             <span class="m-l-5">25 Nov 2018</span>
                                         </p>
                                     </div>
                                 </div>
-                            </div>    
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -547,7 +565,8 @@
                                 <p>Config header background color</p>
                                 <div class="theme-configurator d-flex m-t-10">
                                     <div class="radio">
-                                        <input id="header-default" name="header-theme" type="radio" checked value="default">
+                                        <input id="header-default" name="header-theme" type="radio" checked
+                                            value="default">
                                         <label for="header-default"></label>
                                     </div>
                                     <div class="radio">
@@ -588,13 +607,13 @@
                             </div>
                         </div>
                     </div>
-                </div>            
+                </div>
             </div>
             <!-- Quick View END -->
         </div>
     </div>
 
-    
+
     <!-- Core Vendors JS -->
     <script src="{{ asset('dashboard/assets/js/vendors.min.js') }}"></script>
 
