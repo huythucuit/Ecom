@@ -10,6 +10,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\User\ProductListController;
+use App\Http\Controllers\User\ProductDetailController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,8 +32,9 @@ Route::get('/logout', function () {
    return redirect('/login');
 });
 
-Route::get('/productlist', [ProductListController::class, 'Index'])->name('productlist');
-Route::get('/userprofile', [DashboardController::class, 'Index']);
+Route::get('/product-list', [ProductListController::class, 'Index'])->name('productlist');
+Route::get('/user-profile', [DashboardController::class, 'Index']);
+Route::get('/product-detail', [ProductDetailController::class, 'Index'])->name('productdetail');
 
 Route::middleware(['auth', 'role:user'])->group(function () {
    Route::controller(\App\Http\Controllers\User\DashboardController::class)->group(function () {

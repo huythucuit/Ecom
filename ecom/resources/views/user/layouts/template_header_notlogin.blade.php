@@ -22,7 +22,7 @@
             <div class="search-site">
                 <div class="suggested-keywords">
                 <a href="{{route('productlist')}}" class="white-anchor heavy-link">Nước tẩy trang Test</a>
-                    <a href="" class="white-anchor heavy-link">Kem chống nắng</a>
+                    <a href="{{route('productdetail')}}" class="white-anchor heavy-link">Kem chống nắng</a>
                     <a href="" class="white-anchor heavy-link">Toner</a>
                     <a href="" class="white-anchor heavy-link">Sữa rửa mặt</a>
                     <a href="" class="white-anchor heavy-link">Tẩy tế bào chết</a>
