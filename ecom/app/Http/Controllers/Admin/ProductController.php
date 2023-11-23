@@ -12,7 +12,10 @@ class ProductController extends Controller
 {
     public function Index()
     {
-        return view('admin.allproduct');
+        
+       // $products = Product::latest()->get();
+       $products = Product::paginate(10); // 10 sản phẩm mỗi trang
+        return view('admin.allproduct', compact('products'));
     }
 
     public function AddProduct()

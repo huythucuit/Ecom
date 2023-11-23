@@ -10,20 +10,21 @@
 
     <!-- Favicon -->
     <link rel="shortcut icon" href="{{ asset('dashboard/assets/images/logo/colored-logo.png') }}">
-
+    <link href="{{ asset('dashboard/assets/vendors/datatables/dataTables.bootstrap.min.css') }}" rel="stylesheet">
     <!-- page css -->
     <link href="~/admin_assets/vendors/bootstrap-datepicker/bootstrap-datepicker.min.css" rel="stylesheet">
     <!-- Core css -->
     <link href="{{ asset('dashboard/assets/css/app.min.css') }}" rel="stylesheet">
-    
+
     <link href="https://fonts.cdnfonts.com/css/be-vietnam-pro" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.11.6/css/jquery.dataTables.min.css">
 </head>
 
 <style>
-    body{
+    body {
         font-family: 'Be Vietnam Pro';
     }
-</style> 
+</style>
 
 <body>
     <div class="app">
@@ -128,7 +129,7 @@
                         <li class="dropdown dropdown-animated scale-left">
                             <div class="pointer" data-toggle="dropdown">
                                 <div class="avatar avatar-image  m-h-10 m-r-15">
-                                    <img src="{{ asset('dashboard/assets/') }}images/avatars/thumb-3.jpg"  alt="">
+                                    <img src="{{ asset('dashboard/assets/') }}images/avatars/thumb-3.jpg" alt="">
                                 </div>
                             </div>
                             <div class="p-b-15 p-t-20 dropdown-menu pop-profile">
@@ -188,229 +189,229 @@
                         </li>
                     </ul>
                 </div>
-            </div>    
+            </div>
             <!-- Header END -->
 
             <!-- Side Nav START -->
             <div class="side-nav">
-    <div class="side-nav-inner">
-        <ul class="side-nav-menu scrollable">
-            <li class="nav-item dropdown open">
-                <a class="dropdown-toggle" href="{{ route('admindashboard') }}">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-dashboard"></i>
-                    </span>
-                    <span class="title">Dashboard</span>
-                </a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-appstore"></i>
-                    </span>
-                    <span class="title">Quản lý sản phẩm</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="{{ route('allproducts') }}">Sản phẩm</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('addproduct') }}">Thêm sản phẩm</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('allcategory') }}">Danh mục</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('addcategory') }}">Thêm danh mục</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('allsubcategory') }}">SUB CATEGORY</a>
-                    </li>
-                    <li>
-                        <a href="{{ route('addsubcategory') }}">ADD SUB CATEGORY</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-build"></i>
-                    </span>
-                    <span class="title">Quản lý đơn hàng</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="{{ route('pendingorder') }}">pending Order</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-hdd"></i>
-                    </span>
-                    <span class="title">Quản lý tài khoản</span>
-<span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="accordion.html">Tài khoản admin</a>
-                    </li>
-                    <li>
-                        <a href="carousel.html">Tài khoản user</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-form"></i>
-                    </span>
-                    <span class="title">Quản lý bài đăng</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="form-elements.html">Doanh số ngày</a>
-                    </li>
-                    <li>
-                        <a href="form-layouts.html">Doanh số tuần</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Doanh số tháng</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Doanh số năm</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-pie-chart"></i>
-                    </span>
-                    <span class="title">Thống kê doanh số</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="form-elements.html">Doanh số ngày</a>
-                    </li>
-                    <li>
-                        <a href="form-layouts.html">Doanh số tuần</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Doanh số tháng</a>
-                    </li>
-                    <li>
-                        <a href="form-validation.html">Doanh số năm</a>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-file"></i>
-                    </span>
-                    <span class="title">Quản lý page</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-<ul class="dropdown-menu">
-                    <li>
-                        <a href="profile.html">Profile</a>
-                    </li>
-                    <li>
-                        <a href="invoice.html">Invoice</a>
-                    </li>
-                    <li>
-                        <a href="members.html">Members</a>
-                    </li>
-                    <li>
-                        <a href="pricing.html">Pricing</a>
-                    </li>
-                    <li>
-                        <a href="setting.html">Setting</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a href="javascript:void(0);">
-                            <span>Blog</span>
-                            <span class="arrow">
-                                <i class="arrow-icon"></i>
-                            </span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li>
-                                <a href="blog-grid.html">Blog Grid</a>
-                            </li>
-                            <li>
-                                <a href="blog-list.html">Blog List</a>
-                            </li>
-                            <li>
-                                <a href="blog-post.html">Blog Post</a>
-                            </li>
-                        </ul>
-                    </li>
-                </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="dropdown-toggle" href="javascript:void(0);">
-                    <span class="icon-holder">
-                        <i class="anticon anticon-lock"></i>
-                    </span>
-                    <span class="title">Authentication</span>
-                    <span class="arrow">
-                        <i class="arrow-icon"></i>
-                    </span>
-                </a>
-                <ul class="dropdown-menu">
-                    <li>
-                        <a href="login-1.html">Login 1</a>
-                    </li>
-                    <li>
-                        <a href="login-2.html">Login 2</a>
-                    </li>
-                    <li>
-                        <a href="login-3.html">Login 3</a>
-                    </li>
-                    <li>
-                        <a href="sign-up-1.html">Sign Up 1</a>
-                    </li>
-                    <li>
-                        <a href="sign-up-2.html">Sign Up 2</a>
-                    </li>
-                    <li>
-                        <a href="sign-up-3.html">Sign Up 3</a>
-                    </li>
-                    <li>
-                        <a href="error-1.html">Error 1</a>
-                    </li>
-                    <li>
-                        <a href="error-2.html">Error 2</a>
-                    </li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</div>
+                <div class="side-nav-inner">
+                    <ul class="side-nav-menu scrollable">
+                        <li class="nav-item dropdown open">
+                            <a class="dropdown-toggle" href="{{ route('admindashboard') }}">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-dashboard"></i>
+                                </span>
+                                <span class="title">Dashboard</span>
+                            </a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-appstore"></i>
+                                </span>
+                                <span class="title">Quản lý sản phẩm</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('allproducts') }}">Sản phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('addproduct') }}">Thêm sản phẩm</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('allcategory') }}">Danh mục</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('addcategory') }}">Thêm danh mục</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('allsubcategory') }}">SUB CATEGORY</a>
+                                </li>
+                                <li>
+                                    <a href="{{ route('addsubcategory') }}">ADD SUB CATEGORY</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-build"></i>
+                                </span>
+                                <span class="title">Quản lý đơn hàng</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('pendingorder') }}">pending Order</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-hdd"></i>
+                                </span>
+                                <span class="title">Quản lý tài khoản</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="accordion.html">Tài khoản admin</a>
+                                </li>
+                                <li>
+                                    <a href="carousel.html">Tài khoản user</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-form"></i>
+                                </span>
+                                <span class="title">Quản lý bài đăng</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="form-elements.html">Doanh số ngày</a>
+                                </li>
+                                <li>
+                                    <a href="form-layouts.html">Doanh số tuần</a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">Doanh số tháng</a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">Doanh số năm</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-pie-chart"></i>
+                                </span>
+                                <span class="title">Thống kê doanh số</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="form-elements.html">Doanh số ngày</a>
+                                </li>
+                                <li>
+                                    <a href="form-layouts.html">Doanh số tuần</a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">Doanh số tháng</a>
+                                </li>
+                                <li>
+                                    <a href="form-validation.html">Doanh số năm</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-file"></i>
+                                </span>
+                                <span class="title">Quản lý page</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="profile.html">Profile</a>
+                                </li>
+                                <li>
+                                    <a href="invoice.html">Invoice</a>
+                                </li>
+                                <li>
+                                    <a href="members.html">Members</a>
+                                </li>
+                                <li>
+                                    <a href="pricing.html">Pricing</a>
+                                </li>
+                                <li>
+                                    <a href="setting.html">Setting</a>
+                                </li>
+                                <li class="nav-item dropdown">
+                                    <a href="javascript:void(0);">
+                                        <span>Blog</span>
+                                        <span class="arrow">
+                                            <i class="arrow-icon"></i>
+                                        </span>
+                                    </a>
+                                    <ul class="dropdown-menu">
+                                        <li>
+                                            <a href="blog-grid.html">Blog Grid</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog-list.html">Blog List</a>
+                                        </li>
+                                        <li>
+                                            <a href="blog-post.html">Blog Post</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
+                                    <i class="anticon anticon-lock"></i>
+                                </span>
+                                <span class="title">Authentication</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="login-1.html">Login 1</a>
+                                </li>
+                                <li>
+                                    <a href="login-2.html">Login 2</a>
+                                </li>
+                                <li>
+                                    <a href="login-3.html">Login 3</a>
+                                </li>
+                                <li>
+                                    <a href="sign-up-1.html">Sign Up 1</a>
+                                </li>
+                                <li>
+                                    <a href="sign-up-2.html">Sign Up 2</a>
+                                </li>
+                                <li>
+                                    <a href="sign-up-3.html">Sign Up 3</a>
+                                </li>
+                                <li>
+                                    <a href="error-1.html">Error 1</a>
+                                </li>
+                                <li>
+                                    <a href="error-2.html">Error 2</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
             <!-- Side Nav END -->
 
             <!-- Page Container START -->
             <div class="page-container">
-                
+
 
                 <!-- Content Wrapper START -->
                 <div class="main-content">
@@ -512,9 +513,9 @@
                                         <p class="m-b-0 text-muted font-size-13">Data Analyst</p>
                                     </div>
                                 </div>
-                            </div>   
+                            </div>
                             <div class="m-t-30">
-                                <h5 class="m-b-20">News</h5> 
+                                <h5 class="m-b-20">News</h5>
                                 <div class="d-flex m-b-30">
                                     <div class="avatar avatar-image">
                                         <img src="{{ asset('dashboard/assets/images/others/img-1.jpg') }}" alt="">
@@ -527,7 +528,7 @@
                                         </p>
                                     </div>
                                 </div>
-                            </div>    
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -588,13 +589,13 @@
                             </div>
                         </div>
                     </div>
-                </div>            
+                </div>
             </div>
             <!-- Quick View END -->
         </div>
     </div>
 
-    
+
     <!-- Core Vendors JS -->
     <script src="{{ asset('dashboard/assets/js/vendors.min.js') }}"></script>
 
@@ -605,6 +606,19 @@
     <!-- Core JS -->
     <script src="{{ asset('dashboard/assets/js/app.min.js') }}"></script>
 
+
+    <!-- page jsCHO TRANG ALLPRODUCT
+     Core Vendors JS
+    <script src="{{asset('dashboard/assets/js/vendors.min.js')}}"></script>
+     page js
+    <script src=" {{ asset('dashboard/assets/vendors/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src=" {{ asset('dashboard/assets/vendors/datatables/dataTables.bootstrap.min.js')}}"></script>
+    <script src=" {{ asset('dashboard/assets/js/pages/e-commerce-order-list.js')}}"></script>
+
+     Core JS
+    <script src=" {{ asset('dashboard/assets/js/app.min.js')}}"></script> -->
+    <!-- Content Wrapper END KẾT THÚC TRANG PRODUCT Ở ĐÂY -->
+    
 </body>
 
 </html>
