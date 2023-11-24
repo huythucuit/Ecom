@@ -1,4 +1,4 @@
-@include('user.layouts.template_header_notlogin')
+@include('user.layouts.template_header_logged')
 <!-- Content -->
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">

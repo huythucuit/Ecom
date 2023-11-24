@@ -15,20 +15,23 @@
     <div class="header-wrapper">
         <div class="header-container">
             <div class="logo-site">
-                <a href="/user/dashboard" class="logo">
+                @auth
+                <a href="{{route('userdashboard')}}" class="logo">
                     <img src="{{ asset('assets/logo.svg')}}" alt="logo">
                 </a>
+                @endauth
+                @guest
+                        <a href="/" class="logo">
+                            <img src="{{ asset('assets/logo.svg')}}" alt="logo">
+                        </a>
+                @endguest
             </div>
 
             <div class="search-site">
                 <div class="suggested-keywords">
-                    <a href="{{route('productlist')}}" class="white-anchor heavy-link">Nước tẩy trang</a>
-                    <a href="" class="white-anchor heavy-link">Kem chống nắng</a>
-                    <a href="" class="white-anchor heavy-link">Toner</a>
-                    <a href="" class="white-anchor heavy-link">Sữa rửa mặt</a>
-                    <a href="" class="white-anchor heavy-link">Tẩy tế bào chết</a>
-                    <a href="" class="white-anchor heavy-link">Cushion</a>
-
+                    @foreach($subcategories as $subcategory)
+                        <a href="{{route('productlist', ['slug' => $subcategory->subCategorySlug])}}" class="white-anchor heavy-link">{{$subcategory->subCategoryName}}</a>
+                    @endforeach
                 </div>
 
                 <div class="search-cart">
@@ -76,8 +79,9 @@
 
     <div class="top-bar">
         <a href="" class="category-fixed" style="font-weight: 600; background: #fff;">DANH MỤC</a>
+        @foreach($categories as $category)
         <div class="sub-nav">
-            <button class="btn-sub-nav">Trang điểm <i class="fa fa-caret-down"></i></button>
+            <button class="btn-sub-nav">{{$category->categoryName}} <i class="fa fa-caret-down"></i></button>
             <div class="sub-nav-content">
                 <a href="" class="heavy-link">Kem nền</a>
                 <a href="" class="heavy-link">Kem lót</a>
@@ -86,43 +90,6 @@
                 <a href="" class="heavy-link">Dụng cụ</a>
             </div>
         </div>
-        <div class="sub-nav">
-            <button class="btn-sub-nav">Chăm sóc da <i class="fa fa-caret-down"></i></button>
-            <div class="sub-nav-content">
-                <a href="" class="heavy-link">Sữa rửa mặt</a>
-                <a href="" class="heavy-link">Tẩy trang</a>
-                <a href="" class="heavy-link">Toner</a>
-                <a href="" class="heavy-link">Dưỡng ẩm</a>
-                <a href="" class="heavy-link">Kem chống nắng</a>
-            </div>
-        </div>
-        <div class="sub-nav">
-            <button class="btn-sub-nav">Chăm sóc tóc <i class="fa fa-caret-down"></i></button>
-            <div class="sub-nav-content">
-                <a href="" class="heavy-link">Dầu gội</a>
-                <a href="" class="heavy-link">Dầu xả</a>
-                <a href="" class="heavy-link">Dầu dưỡng tóc</a>
-                <a href="" class="heavy-link">Thuốc nhuộm</a>
-            </div>
-        </div>
-        <div class="sub-nav">
-            <button class="btn-sub-nav">Chăm sóc cơ thể <i class="fa fa-caret-down"></i></button>
-            <div class="sub-nav-content">
-                <a href="" class="heavy-link">Sữa tắm</a>
-                <a href="" class="heavy-link">Body Scrub</a>
-                <a href="" class="heavy-link">Lăn khử mùi</a>
-                <a href="" class="heavy-link">Sữa dưỡng thể</a>
-            </div>
-        </div>
-        <div class="sub-nav">
-            <button class="btn-sub-nav">Nước hoa</button>
-        </div>
-        <div class="sub-nav">
-            <button class="btn-sub-nav">Thực phẩm chức năng <i class="fa fa-caret-down"></i></button>
-            <div class="sub-nav-content">
-                <a href="" class="heavy-link">Hỗ trợ làm đẹp</a>
-                <a href="" class="heavy-link">Hỗ trợ sức khỏe</a>
-            </div>
-        </div>
+        @endforeach
     </div>
 

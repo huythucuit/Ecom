@@ -9,8 +9,10 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
-use App\Http\Controllers\User\ProductListController;
-use App\Http\Controllers\User\ProductDetailController;
+use App\Http\Controllers\User\ProductController as UserProductController;
+use App\Http\Controllers\User\CategoryController as UserCategoryController;
+use App\Http\Controllers\User\SubCategoryController as UserSubCategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -32,9 +34,16 @@ Route::get('/logout', function () {
    return redirect('/login');
 });
 
-Route::get('/product-list', [ProductListController::class, 'Index'])->name('productlist');
+Route::controller(UserSubCategoryController::class)->group(function () {
+   Route::get('/product-list/{slug}', 'getSubCategoryBySlug')->name('productlist');
+});
+
+Route::controller(UserProductController::class)->group(function () {
+   Route::get('/product-detail', 'Index')->name('productdetail');
+});
+
 Route::get('/user-profile', [DashboardController::class, 'Index']);
-Route::get('/product-detail', [ProductDetailController::class, 'Index'])->name('productdetail');
+Route::get('/product-detail', [ProductController::class, 'Index'])->name('productdetail');
 
 Route::middleware(['auth', 'role:user'])->group(function () {
    Route::controller(\App\Http\Controllers\User\DashboardController::class)->group(function () {
@@ -45,6 +54,7 @@ Route::middleware(['auth', 'role:user'])->group(function () {
 Route::middleware(['auth', 'role:admin'])->group(function () {
    Route::controller(DashboardController::class)->group(function () {
       Route::get('/admin/dashboard', 'DashboardAdmin')->name('admindashboard');
+      Route::get('/admin/shop-dashboard', 'ProfileAdmin')->name('adminshopdashboard');
    });
 
    Route::controller(CategoryController::class)->group(function () {

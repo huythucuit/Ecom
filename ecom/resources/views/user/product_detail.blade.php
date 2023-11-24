@@ -1,9 +1,4 @@
-@auth
-	@include('user.layouts.template_header_logged')
-@endauth
-@guest
-	@include('user.layouts.template_header_notlogin')
-@endguest
+@include('user.layouts.template_header_logged')
 
 <div class="page-navigation">
         <ul class="breadcrumb">
@@ -68,18 +63,18 @@
             <h2 class="section-txt-title">Thông tin sản phẩm</h2>
         </div>
         <div class="product-detail-information-content">
-            <p>Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu Bảo Vệ Hoàn Hảo là 
-                sản phẩm chống nắng đến từ thương hiệu chống nắng dưỡng da 
-                ANESSA hàng đầu Nhật Bản suốt 21 năm liên tiếp, giúp chống 
-                lại tác hại của tia UV & bụi mịn tối ưu dưới mọi điều kiện 
-                sinh hoạt, kể cả thời tiết khắc nghiệt nhất. Sản phẩm đặc biệt 
+            <p>Sữa Chống Nắng Anessa Dưỡng Da Kiềm Dầu Bảo Vệ Hoàn Hảo là
+                sản phẩm chống nắng đến từ thương hiệu chống nắng dưỡng da
+                ANESSA hàng đầu Nhật Bản suốt 21 năm liên tiếp, giúp chống
+                lại tác hại của tia UV & bụi mịn tối ưu dưới mọi điều kiện
+                sinh hoạt, kể cả thời tiết khắc nghiệt nhất. Sản phẩm đặc biệt
                 phù hợp với làn da thiên dầu.</p>
-            <p>Anessa Perfect UV Sunscreen Skincare Milk N SPF50+ PA++++ ứng 
-                dụng công nghệ Auto Booster và Very Water Resistant độc quyền 
-                từ thương hiệu ANESSA, giúp cho lớp màng chống UV trở nên bền 
-                vững hơn khi gặp NHIỆT ĐỘ CAO - ĐỘ ẨM - MỒ HÔI - NƯỚC - MA SÁT, 
-                đồng thời chống trôi trong nước lên đến 80 phút, chống bụi mịn PM.25 
-                và chống dính cát. Ngoài ra, sự bổ sung của phức hợp 50% thành phần 
+            <p>Anessa Perfect UV Sunscreen Skincare Milk N SPF50+ PA++++ ứng
+                dụng công nghệ Auto Booster và Very Water Resistant độc quyền
+                từ thương hiệu ANESSA, giúp cho lớp màng chống UV trở nên bền
+                vững hơn khi gặp NHIỆT ĐỘ CAO - ĐỘ ẨM - MỒ HÔI - NƯỚC - MA SÁT,
+                đồng thời chống trôi trong nước lên đến 80 phút, chống bụi mịn PM.25
+                và chống dính cát. Ngoài ra, sự bổ sung của phức hợp 50% thành phần
                 dưỡng da giúp ngăn ngừa lão hoá do tia UV hiệu quả và nuôi dưỡng da ẩm mịn.</p>
         </div>
     </div>

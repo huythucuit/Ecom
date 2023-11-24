@@ -19,6 +19,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $categories = \App\Models\Category::all();
+        view()->share('categories', $categories);
+        $subcategories = \App\Models\Subcategory::all();
+        view()->share('subcategories', $subcategories);
     }
 }

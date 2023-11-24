@@ -1,13 +1,14 @@
-@auth
+
 	@include('user.layouts.template_header_logged')
-@endauth
-@guest
-	@include('user.layouts.template_header_notlogin')
-@endguest
 <div class="page-navigation">
         <ul class="breadcrumb">
-            <li><a href="">Trang chủ</a></li>
-            <li><a href="">Kem chống nắng</a></li>
+            @auth
+            <li><a href="{{route('userdashboard')}}">Trang chủ</a></li>
+            @endauth
+            @guest
+            <li><a href="/">Trang chủ</a></li>
+            @endguest
+            <li><a href="">{{$subCategory_slug->subCategoryName}}</a></li>
         </ul>
     </div>
 
@@ -15,7 +16,7 @@
         <div class="sidebar">
             <div class="sidebar-category">
                 <div class="side-bar-title">
-                    <h2 class="">DANH MỤC</h3>
+                    <h2 class="">DANH MỤC</h2>
                 </div>
                 <div class="side-bar-category">
                     <div class="category-sb"><a href="" class="cyan-link heavy-link">Kem chống nắng</a></div>
@@ -23,15 +24,15 @@
                     <div class="category-sb"><a href="" class="cyan-link heavy-link">Kem chống nắng</a></div>
                     <div class="category-sb"><a href="" class="cyan-link heavy-link">Dưỡng ẩm</a></div>
                     <div class="category-sb"><a href="" class="cyan-link heavy-link">Kem chống nắng</a></div>
-                    <div class="category-sb"><a href="" class="cyan-link heavy-link">Dưỡng ẩm</a></div>  
+                    <div class="category-sb"><a href="" class="cyan-link heavy-link">Dưỡng ẩm</a></div>
                 </div>
             </div>
             <div class="sidebar-filter">
                 <div class="side-bar-title">
-                    <h2 class="">BỘ LỌC TÌM KIẾM</h3>
+                    <h2 class="">BỘ LỌC TÌM KIẾM</h2>
                 </div>
                 <div class="brand-filter">
-                    <h3 class="">Tên thương hiệu</h2>
+                    <h3 class="">Tên thương hiệu</h3>
                     <div class="brand-choose">
                         <input type="checkbox" name="" id="">
                         <label for="">Thương hiệu</label><br>
@@ -48,7 +49,7 @@
                     </div>
                 </div>
                 <div class="price-range">
-                    <h3 class="">Khoảng giá</h2>
+                    <h3 class="">Khoảng giá</h3>
                     <form action="" class="filter-product">
                         <input type="text" name="" id="" placeholder="Từ &#8363;">
                         <span class="price-range-line">-</span>
@@ -62,7 +63,7 @@
         <div class="product-list">
             <div class="product-list-header">
                 <div class="product-list-title">
-                    <h1 class="section-txt-title">Kem chống nắng</h1>
+                    <h1 class="section-txt-title">{{$subCategory_slug->subCategoryName}}</h1>
                 </div>
                 <div class="product-list-filter">
                     <div class="product-list-filter-content right">
@@ -73,7 +74,6 @@
                             <option value="Alphabet">A - Z</option>
                         </select>
                     </div>
-                    
                 </div>
             </div>
             <div class="product-list-content grid-4-col">
@@ -478,7 +478,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="pagination-container">
                 <nav>
                     <div class="pagination">
