@@ -37,14 +37,17 @@
                 <x-text-input id="email-user" type="email" name="email" placeholder="Nhập email" :value="old('email')"
                     required autofocus autocomplete="username" />
                 <x-input-error :messages="$errors->get('email')" class="mt-2" /> -->
-                <form action="/login" method="post">
-                    <label for="email-user" style="font-weight: 400;">Email</label><br>
-                    <input type="email" id="email-user" name="email" placeholder="Nhập email"><br><br>
-                    <label for="password-user" style="font-weight: 400;">Mật khẩu</label><br>
-                    <input type="password" id="password-user" name="password" placeholder="Nhập mật khẩu"
-                        class="password-hide-3"><i class="fa-regular fa-eye txt-cyan reveal-pass-3"
-                        onclick="togglePassword(3)"></i><br><br>
+                <label for="email-user" style="font-weight: 400;">Email</label><br>
+                <input type="email" id="email-user" name="email" placeholder="Nhập email" required><br><br>
+                <label for="password-user" style="font-weight: 400;">Mật khẩu</label><br>
+                <input type="password" id="password-user" name="password" placeholder="Nhập mật khẩu"
+                    class="password-hide-3" required><i class="fa-regular fa-eye txt-cyan reveal-pass-3"
+                    onclick="togglePassword(3)"></i>
+                <br><br>
                 <!-- Password -->
+                @error('password')
+                <span class="text-red-500">{{ $message }}</span>
+                @enderror
                 <!-- <label for="password-user" style="font-weight: 400;">Mật khẩu</label><br>
                 <x-text-input id="password-user" type="password" name="password" placeholder="Nhập mật khẩu"
                     class="password-hide-3" required autocomplete="current-password" />
@@ -67,9 +70,14 @@
             <a href="{{ route('password.request') }}" class="txt-cyan txt-14 right" id="forget-password">Quên mật
                 khẩu</a><br>
             <hr style="width: 70%; height: 1px; background-color: var(--black); border: none; margin: 20px auto;">
-            <div class="create-acc txt-center">
-                <span>Bạn chưa có tài khoản? <a href="{{route('register')}}" class="txt-cyan orange-link">Tạo tài khoản</a></span>
-            </div>
+            <form method="GET">
+                @csrf
+                <div class="create-acc txt-center">
+                    <span>Bạn chưa có tài khoản? <a href="{{route('register.store')}}" class="txt-cyan orange-link">Tạo
+                            tài
+                            khoản</a></span>
+                </div>
+            </form>
         </div>
     </div>
 

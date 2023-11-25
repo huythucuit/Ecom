@@ -9,8 +9,8 @@ use Illuminate\Http\Request;
 class CategoryController extends Controller
 {
     public function Index()
-    {   
-        $categories = Category::latest()->get(); // $categories là một collection trong Laravel, nó chứa các đối tượng Category (các bản ghi từ bảng categories)
+    {
+        $categories = Category::latest()->get(); // $categories là một collection trong Laravel, nó chứa các đối tượng CategoryController (các bản ghi từ bảng categories)
         return view('admin.allcategory', compact('categories')); // Phương thức view trả về view 'admin.allcategory' và truyền dữ liệu vào view thông qua mảng compact
     }
 
@@ -42,7 +42,7 @@ class CategoryController extends Controller
         return view('admin.editcategory', compact('category_info'));
     }
     public function UpdateCategory(Request $request)
-    {   
+    {
         $categoryID = $request->categoryID;
 
         $request->validate([

@@ -18,5 +18,12 @@ class Subcategory extends Model
         'subCategoryCreatedDate',
         'subCategoryModifiedDate',
         'categoryID',
+        'categoryName',
+        'subCategorySlug',
     ];
+
+    public function getName()
+    {
+        return $this->subCategoryName;
+    }
 }

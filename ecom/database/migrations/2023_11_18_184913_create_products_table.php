@@ -29,7 +29,7 @@ return new class extends Migration
             $table->dateTime('productModifiedDate');
             $table->boolean('isFlashSale');
             $table->boolean('isActive');
-        
+
             // Laravel timestamps for created_at and updated_at columns
             $table->timestamps();
         });
@@ -37,6 +37,7 @@ return new class extends Migration
 
     /**
      * Reverse the migrations.
+     *
      */
     public function down(): void
     {

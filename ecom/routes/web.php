@@ -9,6 +9,10 @@ use App\Http\Controllers\Admin\SubCategoryController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\User\ProductController as UserProductController;
+use App\Http\Controllers\User\CategoryController as UserCategoryController;
+use App\Http\Controllers\User\SubCategoryController as UserSubCategoryController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -22,19 +26,35 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 */
 
 Route::get('/', function () {
-   return view('welcome');
+   return view('user.dashboard_user');
 });
 
+Route::get('/logout', function () {
+   Auth::logout();
+   return redirect('/login');
+});
 
-Route::get('/dashboard', function () {
-   return view('dashboard');
-})->middleware(['auth', 'role:user'])->name('dashboard');
+Route::controller(UserSubCategoryController::class)->group(function () {
+   Route::get('/product-list/{categorySlug}/{subCategorySlug}', 'getSubCategoryBySlug')->name('productlist');
+});
 
-Route::get('/userprofile', [DashboardController::class, 'Index']);
+Route::controller(UserProductController::class)->group(function () {
+   Route::get('/product-detail-id', 'Index')->name('product detail_user');
+});
+
+Route::get('/user-profile', [DashboardController::class, 'Index']);
+Route::get('/product-detail', [ProductController::class, 'Index'])->name('productdetail');
+
+Route::middleware(['auth', 'role:user'])->group(function () {
+   Route::controller(\App\Http\Controllers\User\DashboardController::class)->group(function () {
+      Route::get('/user/dashboard', 'Index')->name('userdashboard');
+   });
+});
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
    Route::controller(DashboardController::class)->group(function () {
-      Route::get('/admin/dashboard', 'Index')->name('admindashboard');
+      Route::get('/admin/dashboard', 'DashboardAdmin')->name('admindashboard');
+      Route::get('/admin/shop-dashboard', 'ProfileAdmin')->name('adminshopdashboard');
    });
 
    Route::controller(CategoryController::class)->group(function () {
@@ -73,11 +93,5 @@ Route::middleware('auth')->group(function () {
    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
-
-Route::get('/logout', function () {
-   Auth::logout();
-   return redirect('/login');
-});
-
 
 require __DIR__ . '/auth.php';
