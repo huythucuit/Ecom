@@ -23,5 +23,7 @@ class AppServiceProvider extends ServiceProvider
         view()->share('categories', $categories);
         $subcategories = \App\Models\Subcategory::all();
         view()->share('subcategories', $subcategories);
+        $products = \App\Models\Product::all();
+        view()->share('products', $products);
     }
 }

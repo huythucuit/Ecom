@@ -29,8 +29,11 @@
 
             <div class="search-site">
                 <div class="suggested-keywords">
-                    @foreach($subcategories as $subcategory)
-                        <a href="{{route('productlist', ['slug' => $subcategory->subCategorySlug])}}" class="white-anchor heavy-link">{{$subcategory->subCategoryName}}</a>
+                    @foreach($subcategories as $subcategory_header)
+                        @php
+                        $categorySlug = getCategoryByCategoryID($subcategory_header->categoryID)->categorySlug;
+                        @endphp
+                        <a href="{{route('productlist', ['categorySlug'=>$categorySlug, 'subCategorySlug'=>$subcategory_header->subCategorySlug])}}" class="white-anchor heavy-link">{{$subcategory_header->subCategoryName}}</a>
                     @endforeach
                 </div>
 
@@ -83,11 +86,11 @@
         <div class="sub-nav">
             <button class="btn-sub-nav">{{$category->categoryName}} <i class="fa fa-caret-down"></i></button>
             <div class="sub-nav-content">
-                <a href="" class="heavy-link">Kem nền</a>
-                <a href="" class="heavy-link">Kem lót</a>
-                <a href="" class="heavy-link">Son</a>
-                <a href="" class="heavy-link">Kẻ mắt / Kẻ mày</a>
-                <a href="" class="heavy-link">Dụng cụ</a>
+                @foreach($subcategories as $subcategory_header)
+                    @if($subcategory_header->categoryID == $category->categoryID)
+                        <a href="{{route('productlist', ['categorySlug'=>$categorySlug, 'subCategorySlug'=>$subcategory_header->subCategorySlug])}}" class="heavy-link">{{$subcategory_header->subCategoryName}}</a>
+                    @endif
+                @endforeach
             </div>
         </div>
         @endforeach

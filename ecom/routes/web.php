@@ -26,7 +26,7 @@ use App\Http\Controllers\User\SubCategoryController as UserSubCategoryController
 */
 
 Route::get('/', function () {
-   return view('welcome');
+   return view('user.dashboard_user');
 });
 
 Route::get('/logout', function () {
@@ -35,11 +35,11 @@ Route::get('/logout', function () {
 });
 
 Route::controller(UserSubCategoryController::class)->group(function () {
-   Route::get('/product-list/{slug}', 'getSubCategoryBySlug')->name('productlist');
+   Route::get('/product-list/{categorySlug}/{subCategorySlug}', 'getSubCategoryBySlug')->name('productlist');
 });
 
 Route::controller(UserProductController::class)->group(function () {
-   Route::get('/product-detail', 'Index')->name('productdetail');
+   Route::get('/product-detail-id', 'Index')->name('product detail_user');
 });
 
 Route::get('/user-profile', [DashboardController::class, 'Index']);

@@ -13,12 +13,13 @@ class SubCategoryController extends Controller
         $get5SubCategory = $this->get5SubCategory();
     }
 
-    public function getSubCategoryBySlug($subCategorySlug): \Illuminate\Contracts\View\View|\Illuminate\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\Foundation\Application
+    public function getSubCategoryBySlug(Request $request)
     {
-        $subCategory = Subcategory::where('subCategorySlug', $subCategorySlug)->first();
-        return view('user.product_list', ['subCategory_slug' => $subCategory]);
-    }
+        $subCategory = SubCategory::where('subCategorySlug', $request->subCategorySlug)->first();
+        $category = getCategoryByCategorySlug($request->categorySlug);
 
+        return view('user.product_list', ['subCategory' => $subCategory, 'category' => $category]);
+    }
     public function get5SubCategory()
     {
         $subCategory = SubCategory::take(5)->get();
