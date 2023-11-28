@@ -23,7 +23,9 @@ function getCategoryByCategorySlug($categorySlug)
 }
 function getProductsBySubCategoryID($subCategoryID)
 {
-    return Product::where('subCategoryID', $subCategoryID)->get();
+//    return Product::where('subCategoryID', $subCategoryID)->get();
+    //return product with status active and in stock > 0 and subcategory id
+    return Product::where('subCategoryID', $subCategoryID)->where('isActive', 1)->where('productInStock', '>', 0)->get();
 }
 
 

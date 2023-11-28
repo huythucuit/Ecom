@@ -12,10 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('products', function (Blueprint $table) {
-            $table->string('productID', 50)->primary();
+            $table->integer('productID', 11)->primary();
             $table->string('productName', 200);
-            $table->string('productBrandID', 50);
-            $table->string('subCategoryID', 50);
+            $table->integer('productBrandID');
+            $table->string('productBrandName', 200);
+            $table->integer('productSubCategoryID');
+            $table->string('productSubCategoryName', 200);
+            $table->integer('productCategoryID');
+            $table->string('productCategoryName', 200);
             $table->integer('productOriginalPrice');
             $table->integer('productDiscountPrice');
             $table->text('productInfo');
@@ -27,6 +31,7 @@ return new class extends Migration
             $table->string('productSideImage3', 1000);
             $table->dateTime('productCreatedDate');
             $table->dateTime('productModifiedDate');
+            $table->string('productSlug',50);
             $table->boolean('isFlashSale');
             $table->boolean('isActive');
 

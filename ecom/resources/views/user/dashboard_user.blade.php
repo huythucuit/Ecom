@@ -82,7 +82,7 @@
             <div class="flash-sale-product-wrapper">
                 <div class="flash-sale-product">
                     <div class="product-ping width-common relative">
-                        <a href="{{route('product detail_user')}}" class="image-common relative">
+                        <a href="" class="image-common relative">
                             <div class="product-img sale">
                                 <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg"
                                     alt="" height="200" width="200">
@@ -223,7 +223,7 @@
         <div class="suggested-product-content grid-5-col">
             <div class="preview-product">
                 <div class="product-ping width-common relative">
-                    <a href="{{route('product detail_user')}}" class="image-common relative">
+                    <a href="" class="image-common relative">
                         <div class="product-img sale">
                             <img src="https://media.hcdn.vn/wysiwyg/HaNguyen1/sua-chong-nang-anessa-duong-da-kiem-dau-bao-ve-hoan-hao-1.jpg"
                                 alt="" height="200" width="200">
