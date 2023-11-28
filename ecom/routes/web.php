@@ -35,11 +35,12 @@ Route::get('/logout', function () {
 });
 
 Route::controller(UserSubCategoryController::class)->group(function () {
-   Route::get('/product-list/{categorySlug}/{subCategorySlug}', 'getSubCategoryBySlug')->name('productlist');
+   Route::get('/product-list/{categorySlug}/{subCategorySlug}/{sortBy?}', 'Index')->name('productlist');
+   Route::get('/product-list/{categorySlug}/{sortBy?}', 'Index2')->name('product list with category');
 });
 
 Route::controller(UserProductController::class)->group(function () {
-   Route::get('/product-detail-id', 'Index')->name('product detail_user');
+   Route::get('/product-list/{categorySlug}/{subCategorySlug}/{productSlug}', 'Index')->name('product detail_user');
 });
 
 Route::get('/user-profile', [DashboardController::class, 'Index']);

@@ -8,7 +8,7 @@
             @guest
             <li><a href="/">Trang chủ</a></li>
             @endguest
-                <li><a href="">{{$subCategory->subCategoryName}}</a></li>
+            <li><a href="{{route('product list with category', ['categorySlug'=>$category_list->categorySlug])}}">{{$category_list->categoryName}}</a></li>
         </ul>
     </div>
 
@@ -19,12 +19,9 @@
                     <h2 class="">DANH MỤC</h2>
                 </div>
                 <div class="side-bar-category">
-                    <div class="category-sb"><a href="" class="cyan-link heavy-link">Kem chống nắng</a></div>
-                    <div class="category-sb"><a href="" class="cyan-link heavy-link">Dưỡng ẩm</a></div>
-                    <div class="category-sb"><a href="" class="cyan-link heavy-link">Kem chống nắng</a></div>
-                    <div class="category-sb"><a href="" class="cyan-link heavy-link">Dưỡng ẩm</a></div>
-                    <div class="category-sb"><a href="" class="cyan-link heavy-link">Kem chống nắng</a></div>
-                    <div class="category-sb"><a href="" class="cyan-link heavy-link">Dưỡng ẩm</a></div>
+                    @foreach($categories as $category)
+                    <div class="category-sb"><a href="{{route('product list with category', ['categorySlug'=>$category->categorySlug])}}" class="cyan-link heavy-link">{{$category->categoryName.' - '.$category->categorySlug}}</a></div>
+                    @endforeach
                 </div>
             </div>
             <div class="sidebar-filter">
@@ -63,7 +60,7 @@
         <div class="product-list">
             <div class="product-list-header">
                 <div class="product-list-title">
-                    <h1 class="section-txt-title">{{$subCategory->subCategoryName}}</h1>
+                    <h1 class="section-txt-title">{{$category_list->categoryName}}</h1>
                 </div>
                 <div class="product-list-filter">
                     <div class="product-list-filter-content right">
@@ -77,10 +74,7 @@
                 </div>
             </div>
             <div class="product-list-content grid-4-col">
-                @php
-                $list_product = getProductsBySubCategoryID($subCategory->subCategoryID);
-                @endphp
-                @foreach($list_product as $product)
+                @foreach($list_products as $product)
                 <div class="preview-product">
                     <div class="product-ping width-common relative">
                         <a href="" class="image-common relative">

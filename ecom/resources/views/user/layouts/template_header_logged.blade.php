@@ -88,7 +88,7 @@
             <div class="sub-nav-content">
                 @foreach($subcategories as $subcategory_header)
                     @if($subcategory_header->categoryID == $category->categoryID)
-                        <a href="{{route('productlist', ['categorySlug'=>$categorySlug, 'subCategorySlug'=>$subcategory_header->subCategorySlug])}}" class="heavy-link">{{$subcategory_header->subCategoryName}}</a>
+                        <a href="{{route('productlist', ['categorySlug'=>$category->categorySlug, 'subCategorySlug'=>$subcategory_header->subCategorySlug])}}" class="heavy-link">{{$subcategory_header->subCategoryName}}</a>
                     @endif
                 @endforeach
             </div>

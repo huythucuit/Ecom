@@ -21,9 +21,4 @@ class Subcategory extends Model
         'categoryName',
         'subCategorySlug',
     ];
-
-    public function getName()
-    {
-        return $this->subCategoryName;
-    }
 }
