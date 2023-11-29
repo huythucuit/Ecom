@@ -46,11 +46,11 @@ PING - Product
         </div>
       </div>
       <div class="table-responsive">
-        <div class="d-flex justify-content-between mb-3">
-          <div>
-            <label for="sortColumn">Chọn cột sắp xếp:</label>
-            <select id="sortColumn" class="form-control">
-              <option value="checkbox">Checkbox</option>
+        <!-- <div class="d-flex justify-content-between mb-3">
+           <div> -->
+            <!-- <label for="sortColumn">Chọn cột sắp xếp:</label> -->
+            <!-- <select id="sortColumn" class="form-control"> -->
+              <!-- <option value="checkbox">Checkbox</option>
               <option value="id">ID</option>
               <option value="product">Product</option>
               <option value="category">Category</option>
@@ -58,19 +58,19 @@ PING - Product
               <option value="stock">Stock Left</option>
               <option value="status">Status</option>
             </select>
-          </div>
-          <div>
+          </div> -->
+          <!-- <div>
             <label for="sortOrder">Chọn thứ tự:</label>
             <select id="sortOrder" class="form-control">
               <option value="asc">Tăng dần</option>
               <option value="desc">Giảm dần</option>
             </select>
-          </div>
-          <div>
-            <!-- Đưa sự kiện onclick vào nút sắp xếp -->
+          </div> -->
+          <!-- <div>
+            
             <button class="btn btn-primary" onclick="sortTable()">Sắp xếp</button>
-          </div>
-        </div>
+          </div> -->
+        <!-- </div> -->
         <table class="table table-hover e-commerce-table">
           <thead>
             <tr>

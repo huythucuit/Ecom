@@ -4,19 +4,26 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Subcategory;
-use App\Models\Category;
-use Illuminate\Http\Request;
+use App\Models\Category;    
+use Illuminate\Http\Request;         
 
 class SubCategoryController extends Controller
 {
     public function Index()
     {
-        $allsubcategories = Subcategory::latest()->get();
-        return view('admin.allsubcategory', compact('allsubcategories'));
+        $subcategories = Subcategory::latest()->paginate(2);
+        return view('admin.allsubcategory', compact('subcategories'));
     }
 
-    public function AddSubCategory()
+    public function SearchSubCategory(Request $request)
     {
+        $searchQuery = $request->input('q');
+        $subcategories = Subcategory::where('subCategoryName', 'like', '%' . $searchQuery . '%')->paginate(15);
+
+        return view('admin.allsubcategory', compact('subcategories'));
+    }
+    public function AddSubCategory()
+    {   
         $categories = Category::latest()->get();
         return view('admin.addsubcategory',compact('categories'));
     }
@@ -27,7 +34,7 @@ class SubCategoryController extends Controller
             'subCategoryName' => 'required|unique:subcategories'
         ]);
 
-
+        
         $category_ID = $request->categoryID;
 
         $category_Name = Category::where('categoryID',$category_ID)->value('categoryName');
@@ -40,6 +47,7 @@ class SubCategoryController extends Controller
             'subCategoryModifiedDate' => $request->subCategoryModifiedDate, // Ban đầu, giả sử ngày tạo và ngày sửa giống nhau
             'categoryID' => $category_ID,
             'categoryName' => $category_Name,
+
         ]);
 
         Category::where('categoryID',$category_ID)->increment('subCategoryCount',1); // Tăng subCategoryCount lên 1 đơn vị sau khi thêm subcategory
@@ -53,7 +61,7 @@ class SubCategoryController extends Controller
         return view('admin.editsubcategory', compact('subCategoryInfo'));
     }
     public function UpdateSubCategory(Request $request)
-    {
+    {   
         $request->validate([
             'subCategoryName' => 'required|unique:subcategories',
         ]);
@@ -73,11 +81,11 @@ class SubCategoryController extends Controller
     }
 
     public function DeleteSubCategory($subCategoryID)
-    {
+    {   
         $categoryID = Subcategory::where('subCategoryID',$subCategoryID)->value('categoryID');
 
         Subcategory::findOrFail($subCategoryID)->delete();
-
+        
         Category::where('categoryID',$categoryID)->decrement('subCategoryCount',1); // Giảm subCategoryCount xuống 1 đơn vị sau khi xóa subcategory
         return redirect()->route('allsubcategory')->with('message', 'Xóa danh mục thành công');
     }
