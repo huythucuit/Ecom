@@ -13,7 +13,8 @@ class Product extends Model
         'productID',
         'productName',
         'productBrandID',
-        'productSubCategoryID', 
+        'productBrandName',
+        'productSubCategoryID',
         'productSubCategoryName' ,
 	    'productCategoryID' ,
 	    'productCategoryName' ,
@@ -28,6 +29,7 @@ class Product extends Model
         'productSideImage3',
         'productCreatedDate',
         'productModifiedDate',
+        'productSlug',
         'isFlashSale',
         'isActive',
     ];

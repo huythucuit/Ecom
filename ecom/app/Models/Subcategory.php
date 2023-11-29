@@ -18,5 +18,7 @@ class Subcategory extends Model
         'subCategoryCreatedDate',
         'subCategoryModifiedDate',
         'categoryID',
+        'categoryName',
+        'subCategorySlug',
     ];
 }

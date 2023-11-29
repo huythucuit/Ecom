@@ -12,18 +12,19 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('subcategories', function (Blueprint $table) {
-            $table->string('subCategoryID', 50)->primary();
+            $table->integer('subCategoryID', 50)->primary();
             $table->string('subCategoryName', 200);
             $table->string('subCategoryImage', 1000);
             $table->string('subCategoryDescription', 1000);
             $table->integer('productCount')->nullable();
             $table->dateTime('subCategoryCreatedDate');
             $table->dateTime('subCategoryModifiedDate');
-            $table->string('categoryID', 50);
-        
+            $table->integer('categoryID');
+            $table->string('categoryName', 50);
+            $table->string('subCategorySlug', 50);
             // Foreign key constraint to link with the 'categories' table
             $table->foreign('categoryID')->references('categoryID')->on('categories')->onDelete('cascade');
-        
+
             // Laravel timestamps for created_at and updated_at columns
             $table->timestamps();
         });
