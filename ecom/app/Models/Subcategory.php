@@ -20,5 +20,6 @@ class Subcategory extends Model
         'categoryID',
         'categoryName',
         'subCategorySlug',
+        'isActive',
     ];
 }
