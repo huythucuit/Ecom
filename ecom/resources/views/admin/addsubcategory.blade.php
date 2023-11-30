@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 @section('page_title')
-PING - Category
+PING - Sub Category
 @endsection
 @section('content')
 <!-- Content -->
@@ -58,6 +58,13 @@ PING - Category
             <label class="col-sm-2 col-form-label" for="basic-default-name">Ngày dự kiến ngừng bán</label>
             <div class="col-sm-10">
               <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="subCategoryModifiedDate" name="subCategoryModifiedDate" />
+            </div>
+          </div>
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-name">Trạng thái sản phẩm</label>
+            <div class="switch m-r-10">
+              <input type="checkbox" id="isActive" name="isActive" checked="">
+              <label for="isActive"></label>
             </div>
           </div>
           <div class="row justify-content-end">

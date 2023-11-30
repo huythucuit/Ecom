@@ -9,9 +9,18 @@ use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
-    public function Index()
+    public function Index(Request $request)
     {
-        $categories = Category::latest()->paginate(10); // $categories là một collection trong Laravel, nó chứa các đối tượng Category (các bản ghi từ bảng categories)
+        $status = $request->input('status', 'available');
+
+        if ($status === 'available') {
+            $categories = Category::where('isActive', 1)->latest()->paginate(10);
+        } elseif ($status === 'unavailable') {
+            $categories = Category::where('isActive', 0)->latest()->paginate(10);
+        } else {
+            $categories = Category::latest()->paginate(10);
+        }
+
         return view('admin.allcategory', compact('categories')); // Phương thức view trả về view 'admin.allcategory' và truyền dữ liệu vào view thông qua mảng compact
     }
     public function SearchCategory(Request $request)
@@ -34,13 +43,15 @@ class CategoryController extends Controller
         $validator = Validator::make($request->all(), [
             'categoryName' => 'required|unique:categories'
         ]);
+
+        $isActive = $request->has('isActive') ? 1 : 0;
         Category::insert([
             'categoryName' => $request->categoryName,
             'categorySlug' => strtolower(str_replace(' ', '-', $request->categoryName)),
             'categoryDescription' => $request->categoryDescription,
             'categoryCreatedDate' => $request->categoryCreatedDate,
             'categoryModifiedDate' => $request->categoryModifiedDate, // Ban đầu, giả sử ngày tạo và ngày sửa giống nhau
-
+            'isActive' => $isActive,
         ]);
 
         return redirect()->route('allcategory')->with('message', 'Thêm danh mục thành công');
@@ -70,13 +81,14 @@ class CategoryController extends Controller
             'categoryName' => 'required|unique:categories,categoryName,' . $categoryID . ',categoryID'
         ]);
 
+        $isActive = $request->has('isActive') ? 1 : 0;
         Category::findOrFail($categoryID)->update([
             'categoryName' => $request->categoryName,
             'categorySlug' => strtolower(str_replace(' ', '-', $request->categoryName)),
             'categoryDescription' => $request->categoryDescription,
             'categoryCreatedDate' => $request->categoryCreatedDate,
             'categoryModifiedDate' => $request->categoryModifiedDate, // Ban đầu, giả sử ngày tạo và ngày sửa giống nhau
-
+            'isActive' => $isActive,
         ]);
 
         return redirect()->route('allcategory')->with('message', 'Cập nhật danh mục thành công');
@@ -84,7 +96,11 @@ class CategoryController extends Controller
 
     public function DeleteCategory($categoryID)
     {
-        Category::findOrFail($categoryID)->delete();
-        return redirect()->route('allcategory')->with('message', 'Xóa danh mục thành công');
+        $category = Category::findOrFail($categoryID);
+    
+        // Thay đổi trạng thái isActive về 0
+        $category->update(['isActive' => 0]);
+    
+        return redirect()->route('allcategory')->with('message', 'Đã thực hiện thành công');;
     }
 }

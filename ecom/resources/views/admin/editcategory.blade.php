@@ -25,7 +25,7 @@ PING - Edit Category
                 @endif
                 <form action="{{ route('updatecategory') }}" method="POST">
                     @csrf
-                            <input type="hidden" class="form-control" id="categoryID" name="categoryID" value="{{$category_info->categoryID}}"  />
+                    <input type="hidden" class="form-control" id="categoryID" name="categoryID" value="{{$category_info->categoryID}}" />
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Tên danh mục</label>
                         <div class="col-sm-10">
@@ -112,6 +112,14 @@ PING - Edit Category
                         <label class="col-sm-2 col-form-label" for="categoryModifiedDate">Category Modified Date</label>
                         <div class="col-sm-10">
                             <input type="datetime-local" class="form-control" id="categoryModifiedDate" name="categoryModifiedDate" value="{{$category_info->categoryModifiedDate}}" />
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">Trạng thái sản phẩm</label>
+                        <div class="switch m-r-10">
+                            <input type="checkbox" id="isActive" name="isActive" checked="">
+                            <label for="isActive"></label>
                         </div>
                     </div>
 

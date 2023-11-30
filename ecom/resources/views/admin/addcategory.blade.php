@@ -58,6 +58,13 @@ PING - Add Category
               <input class="form-control" type="date" value="{{ date('Y-m-d') }}" id="categoryModifiedDate" name="categoryModifiedDate"  />
             </div>
           </div>
+          <div class="row mb-3">
+            <label class="col-sm-2 col-form-label" for="basic-default-name">Trạng thái sản phẩm</label>
+            <div class="switch m-r-10">
+              <input type="checkbox" id="isActive" name="isActive" checked="">
+              <label for="isActive"></label>
+            </div>
+          </div>
 
           <div class="row justify-content-end">
             <div class="col-sm-10">

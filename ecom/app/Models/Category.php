@@ -20,5 +20,6 @@ class Category extends Model
         'categoryCreatedDate',
         'categoryModifiedDate',
         'categoryParentID',
+        'isActive',
     ];
 }
