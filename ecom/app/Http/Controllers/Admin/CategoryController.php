@@ -10,7 +10,11 @@ class CategoryController extends Controller
 {
     public function Index()
     {
+<<<<<<< Updated upstream
         $categories = Category::latest()->get(); // $categories là một collection trong Laravel, nó chứa các đối tượng CategoryController (các bản ghi từ bảng categories)
+=======
+        $categories = Category::latest()->paginate(2); // $categories là một collection trong Laravel, nó chứa các đối tượng Category (các bản ghi từ bảng categories)
+>>>>>>> Stashed changes
         return view('admin.allcategory', compact('categories')); // Phương thức view trả về view 'admin.allcategory' và truyền dữ liệu vào view thông qua mảng compact
     }
 

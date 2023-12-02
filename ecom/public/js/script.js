@@ -16,7 +16,11 @@ variant.forEach(item => {
         variant.forEach(variant => {
             variant.classList.remove('selected');
         });
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
       // Add the 'selected' class to the clicked product item
         item.classList.add('selected');
         var newPrice = addDotsToNumber(item.getAttribute('data-new-price'))
@@ -30,18 +34,31 @@ variant.forEach(item => {
 function addDotsToNumber(number) {
     const numberString = number.toString(); // Chuyển số thành chuỗi
     const parts = numberString.split('.'); // Tách phần nguyên và phần thập phân (nếu có)
+<<<<<<< Updated upstream
   
     let integerPart = parts[0]; // Phần nguyên
   
     // Thêm dấu chấm sau mỗi 3 chữ số từ phải sang trái
     integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   
+=======
+
+    let integerPart = parts[0]; // Phần nguyên
+
+    // Thêm dấu chấm sau mỗi 3 chữ số từ phải sang trái
+    integerPart = integerPart.replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+
+>>>>>>> Stashed changes
     // Kết hợp phần nguyên và phần thập phân (nếu có)
     let formattedNumber = integerPart;
     if (parts[1]) {
       formattedNumber += '.' + parts[1];
     }
+<<<<<<< Updated upstream
   
+=======
+
+>>>>>>> Stashed changes
     return formattedNumber;
 }
 
@@ -51,7 +68,11 @@ function toggleAnswer(x){
     var answer = document.querySelector('.question-'+x+'-answer')
     var questionIcon = document.querySelector('.question-'+x+'-title i')
     if (answer.style.display === "block") {
+<<<<<<< Updated upstream
         answer.style.display = "none"; 
+=======
+        answer.style.display = "none";
+>>>>>>> Stashed changes
         questionIcon.className = "fa-solid fa-angle-down right"
     } else {
         answer.style.display = "block";
@@ -71,3 +92,7 @@ function togglePassword(num) {
     }
 }
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes

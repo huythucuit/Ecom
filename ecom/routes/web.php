@@ -12,6 +12,7 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\CategoryController as UserCategoryController;
 use App\Http\Controllers\User\SubCategoryController as UserSubCategoryController;
+use App\Http\Controllers\User\DashboardController as UserDashBoardController;
 
 
 /*
@@ -29,6 +30,21 @@ Route::get('/', function () {
    return view('user.dashboard_user');
 });
 
+<<<<<<< Updated upstream
+=======
+Route::get('/userprofile', [DashboardController::class, 'Index']);
+
+Route::group([], function () {
+    Route::get('/term-of-use', [UserDashBoardController::class, 'TermOfUse'])->name('term of use');
+    Route::get('/privacy-policy', [UserDashBoardController::class, 'PrivacyPolicy'])->name('privacy policy');
+    Route::get('/most-asked-questions', [UserDashBoardController::class, 'MostAskedQuestions'])->name('most asked questions');
+    Route::get('/return-policy', [UserDashBoardController::class, 'ReturnPolicy'])->name('return policy');
+    Route::get('/delivery-policy', [UserDashBoardController::class, 'DeliveryPolicy'])->name('delivery policy');
+    Route::get('/contact', [UserDashBoardController::class, 'Contact'])->name('contact');
+    Route::get('/about', [UserDashBoardController::class, 'About'])->name('about');
+    Route::get('/blog', [UserDashBoardController::class, 'Blog'])->name('blog');
+});/////////////////////////
+>>>>>>> Stashed changes
 Route::get('/logout', function () {
    Auth::logout();
    return redirect('/login');
