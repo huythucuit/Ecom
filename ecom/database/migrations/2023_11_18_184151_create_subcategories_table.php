@@ -22,6 +22,7 @@ return new class extends Migration
             $table->integer('categoryID');
             $table->string('categoryName', 50);
             $table->string('subCategorySlug', 50);
+            $table->boolean('isActive');
             // Foreign key constraint to link with the 'categories' table
             $table->foreign('categoryID')->references('categoryID')->on('categories')->onDelete('cascade');
 

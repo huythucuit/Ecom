@@ -1238,11 +1238,11 @@ a:hover{
     margin-top: -5px;
 }
 
-.login-wrapper, .signup-wrapper {
+.login-wrapper, .signup-wrapper{
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url("../assets/background.png");
+    background-image: url("assets/background.png");
     background-size: cover;
     background-repeat: repeat;
     background-position: center;

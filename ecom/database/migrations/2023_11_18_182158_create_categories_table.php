@@ -21,6 +21,7 @@ return new class extends Migration
             $table->integer('productCount')->nullable();
             $table->dateTime('categoryCreatedDate');
             $table->dateTime('categoryModifiedDate');
+            $table->boolean('isActive');
             $table->timestamps();
         });
     }

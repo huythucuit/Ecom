@@ -5,9 +5,10 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
-
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Auth;
+
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\User\ProductController as UserProductController;
 use App\Http\Controllers\User\CategoryController as UserCategoryController;
@@ -42,6 +43,10 @@ Route::group([], function () {
     Route::get('/about', [UserDashBoardController::class, 'About'])->name('about');
     Route::get('/blog', [UserDashBoardController::class, 'Blog'])->name('blog');
 });
+
+Route::get('/userprofile', [DashboardController::class, 'Index']);
+
+/////////////////////////
 Route::get('/logout', function () {
    Auth::logout();
    return redirect('/login');
@@ -78,7 +83,9 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
       Route::get('/admin/edit-category/{categoryID}', 'EditCategory')->name('editcategory');
       Route::post('/admin/update-category', 'UpdateCategory')->name('updatecategory');
       Route::get('/admin/delete-category/{categoryID}', 'DeleteCategory')->name('deletecategory');
+      Route::get('/admin/search-category',  'SearchCategory')->name('searchcategory');
    });
+
 
    Route::controller(SubCategoryController::class)->group(function () {
       Route::get('/admin/all-subcategory', 'Index')->name('allsubcategory');
@@ -87,7 +94,7 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
       Route::get('/admin/edit-subcategory/{subCategoryID}', 'EditSubCategory')->name('editsubcategory');
       Route::post('/admin/update-subcategory', 'UpdateSubCategory')->name('updatesubcategory');
       Route::get('/admin/delete-subcategory/{subcategoryID}', 'DeleteSubCategory')->name('deletesubcategory');
-
+      Route::get('/admin/search-subcategory',  'SearchSubCategory')->name('searchsubcategory');
    });
 
    Route::controller(ProductController::class)->group(function () {
@@ -107,5 +114,6 @@ Route::middleware('auth')->group(function () {
    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
 
 require __DIR__ . '/auth.php';

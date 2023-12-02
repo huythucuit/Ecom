@@ -1,6 +1,6 @@
 @extends('admin.layouts.template')
 @section('page_title')
-PING - Edit  Sub Category
+PING - Edit Sub Category
 @endsection
 @section('content')
 <!-- Content -->
@@ -25,7 +25,7 @@ PING - Edit  Sub Category
                 @endif
                 <form action="{{ route('updatesubcategory') }}" method="POST">
                     @csrf
-                            <input type="hidden" class="form-control" id="subCategoryID" name="subCategoryID" value="{{$subCategoryInfo->subCategoryID}}"  />
+                    <input type="hidden" class="form-control" id="subCategoryID" name="subCategoryID" value="{{$subCategoryInfo->subCategoryID}}" />
                     <div class="row mb-3">
                         <label class="col-sm-2 col-form-label" for="basic-default-name">Tên danh mục</label>
                         <div class="col-sm-10">
@@ -105,6 +105,13 @@ PING - Edit  Sub Category
                         <label class="col-sm-2 col-form-label" for="subCategoryModifiedDate">Category Modified Date</label>
                         <div class="col-sm-10">
                             <input type="datetime-local" class="form-control" id="subCategoryModifiedDate" name="subCategoryModifiedDate" value="{{$subCategoryInfo->subCategoryModifiedDate}}" />
+                        </div>
+                    </div>
+                    <div class="row mb-3">
+                        <label class="col-sm-2 col-form-label" for="basic-default-name">Trạng thái sản phẩm</label>
+                        <div class="switch m-r-10">
+                            <input type="checkbox" id="isActive" name="isActive" checked="">
+                            <label for="isActive"></label>
                         </div>
                     </div>
 

@@ -149,7 +149,7 @@ PING - Product
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-name">Trạng thái SALE</label>
             <div class="switch m-r-10">
-              <input type="checkbox" id="isFlashSale" checked="">
+              <input type="checkbox" id="isFlashSale" name="isFlashSale" checked="">
               <label for="isFlashSale"></label>
             </div>
           </div>
@@ -157,7 +157,7 @@ PING - Product
           <div class="row mb-3">
             <label class="col-sm-2 col-form-label" for="basic-default-name">Trạng thái sản phẩm</label>
             <div class="switch m-r-10">
-              <input type="checkbox" id="isActive" checked="">
+              <input type="checkbox" id="isActive" name="isActive" checked="">
               <label for="isActive"></label>
             </div>
           </div>
