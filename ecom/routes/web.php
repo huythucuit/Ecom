@@ -30,8 +30,6 @@ Route::get('/', function () {
    return view('user.dashboard_user');
 });
 
-<<<<<<< Updated upstream
-=======
 Route::get('/userprofile', [DashboardController::class, 'Index']);
 
 Route::group([], function () {
@@ -43,8 +41,7 @@ Route::group([], function () {
     Route::get('/contact', [UserDashBoardController::class, 'Contact'])->name('contact');
     Route::get('/about', [UserDashBoardController::class, 'About'])->name('about');
     Route::get('/blog', [UserDashBoardController::class, 'Blog'])->name('blog');
-});/////////////////////////
->>>>>>> Stashed changes
+});
 Route::get('/logout', function () {
    Auth::logout();
    return redirect('/login');
