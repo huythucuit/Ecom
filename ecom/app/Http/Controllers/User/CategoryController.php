@@ -19,6 +19,7 @@ class CategoryController extends Controller
 
     public function Index()
     {
+
         return view('user.product_list');
     }
 

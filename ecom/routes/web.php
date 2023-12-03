@@ -29,7 +29,7 @@ use App\Http\Controllers\User\DashboardController as UserDashBoardController;
 
 Route::get('/', function () {
    return view('user.dashboard_user');
-});
+})->name('homepage');
 
 Route::get('/userprofile', [DashboardController::class, 'Index']);
 
