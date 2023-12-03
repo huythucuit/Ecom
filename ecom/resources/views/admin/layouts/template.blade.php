@@ -299,6 +299,22 @@
                         <li class="nav-item dropdown">
                             <a class="dropdown-toggle" href="javascript:void(0);">
                                 <span class="icon-holder">
+                                    <i class="anticon anticon-form"></i>
+                                </span>
+                                <span class="title">Quản lý mã giảm giá</span>
+                                <span class="arrow">
+                                    <i class="arrow-icon"></i>
+                                </span>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a href="{{ route('alldiscount') }}">Mã giảm giá</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="dropdown-toggle" href="javascript:void(0);">
+                                <span class="icon-holder">
                                     <i class="anticon anticon-pie-chart"></i>
                                 </span>
                                 <span class="title">Thống kê doanh số</span>

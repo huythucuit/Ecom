@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\OrderController;
 use App\Http\Controllers\Admin\ProductController;
 use App\Http\Controllers\Admin\SubCategoryController;
+use App\Http\Controllers\Admin\DiscountController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
@@ -88,6 +89,16 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
       Route::get('/admin/all-product', 'Index')->name('allproducts');
       Route::get('/admin/add-product', 'AddProduct')->name('addproduct');
       Route::post('/admin/store-product', 'StoreProduct')->name('storeproduct');
+   });
+
+   Route::controller(DiscountController::class)->group(function () {
+      Route::get('/admin/all-discount', 'Index')->name('alldiscount');
+      Route::get('/admin/add-discount', 'AddDiscount')->name('addpdiscount');
+      Route::post('/admin/store-discount', 'StoreDiscount')->name('storediscount');
+      Route::get('/admin/edit-discount/{discountID}', 'EditDiscount')->name('editdiscount');
+      Route::get('/admin/delete-discount/{discountID}', 'DeleteDiscount')->name('deletediscount');
+      Route::get('/admin/search-discount',  'SearchDiscount')->name('searchdiscount');
+      Route::post('/admin/update-discount', 'UpdateDiscount')->name('updatediscount');
    });
 
    Route::controller(OrderController::class)->group(function () {
