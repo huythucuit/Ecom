@@ -93,8 +93,8 @@ class SubCategoryController extends Controller
     {   
         $categoryID = Subcategory::where('subCategoryID',$subCategoryID)->value('categoryID');
 
-        Subcategory::findOrFail($subCategoryID)->delete();
-        
+      //  Subcategory::findOrFail($subCategoryID)->delete();
+        Subcategory::where('subCategoryID', $subCategoryID)->update(['isActive' => 0]);
         Category::where('categoryID',$categoryID)->decrement('subCategoryCount',1); // Giảm subCategoryCount xuống 1 đơn vị sau khi xóa subcategory
         return redirect()->route('allsubcategory')->with('message', 'Xóa danh mục thành công');
     }
