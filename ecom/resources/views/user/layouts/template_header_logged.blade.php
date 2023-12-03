@@ -55,7 +55,7 @@
                         </a>
                         <div class="text">
                             @auth
-                            <a href="" class="white-anchor heavy-link">{{Auth::user()->name}}</a>
+                            <a href="{{route('admindashboard')}}" class="white-anchor heavy-link">{{Auth::user()->name}}</a>
                             <br>
                             <a href="{{ route('logout') }}" class="white-anchor heavy-link">Đăng xuất</a>
                             @endauth
